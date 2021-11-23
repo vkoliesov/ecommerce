@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 
-from shop.views import product
 
 class Category(models.Model):
     name = models.CharField(max_length=250, unique=True)
@@ -69,7 +68,7 @@ class CartItem(models.Model):
 
 
     def sub_total(self):
-        return self.product.price * self.quality
+        return self.product.price * self.quantity
 
     
     def __str__(self):
